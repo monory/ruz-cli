@@ -3,7 +3,6 @@ package ruz
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -43,8 +42,6 @@ func constructURL(email, from, to string) string {
 	v.Add("todate", to)
 
 	u.RawQuery = v.Encode()
-
-	fmt.Println(u.String())
 
 	return u.String()
 }
