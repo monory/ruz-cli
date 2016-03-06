@@ -1,11 +1,21 @@
 package ruz
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 )
+
+// PrettifyResponse делает ответ сервера РУЗ с отступами
+func PrettifyResponse(response []byte) string {
+	var result bytes.Buffer
+	json.Indent(&result, response, "", "\t")
+
+	return result.String()
+}
 
 // MakeRequest посылает запрос серверу РУЗ и возвращает ответ
 func MakeRequest(email, from, to string) ([]byte, error) {
