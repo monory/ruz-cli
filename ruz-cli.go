@@ -1,11 +1,12 @@
 package main
 
 import (
-	"./ruz"
 	"fmt"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/monory/ruz-cli/ruz"
 )
 
 func parseArgs(args []string) (string, time.Time) {
